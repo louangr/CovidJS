@@ -5,7 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CovidJS</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
+    </style>
+    <link rel="stylesheet" href="./style/style.css">
+
     <script src="resources.js" type='module'></script>
     <script src="ui.js" type='module'></script>
     <script src="model.js" type='module'></script>
@@ -13,6 +20,31 @@
 </head>
 
 <body>
+    <div class="header">
+        <h1 class="heading">Covid JS</h1>
+    </div>
+    <div class="content">
+        <p class="subtitle">Covid19 Statistics and Data Visualizations</p>
+        <div class="w-layout-grid main-grid">
+            <div id="data-grid" class="w-layout-grid"></div>
+            <div class="dropdown-container">
+                <select id="select-ways-to-sort-countries-data" class="dropdown-toggle w-select">
+                    <option value="positiveCasesDescending">By Positive Cases &nbsp; ↘</option>
+                    <option value="positiveCasesAscending">By Positive Cases &nbsp; ↗</option>
+                    <option value="deathsDescending">By Deaths &nbsp; ↘</option>
+                    <option value="deathsAscending">By Deaths &nbsp; ↗</option>
+                    <option value="PIBByResidentDescending">By GDP/capita &nbsp; ↘</option>
+                    <option value="PIBByResidentAscending">By GDP/capita &nbsp; ↗</option>
+                </select>
+                <select id="select-number-of-countries" class="dropdown-toggle w-select">
+                    <option value="10">The First 10</option>
+                    <option value="50">The First 50</option>
+                    <option value="100">The First 100</option>
+                    <option value="All">All Countries</option>
+                </select></form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

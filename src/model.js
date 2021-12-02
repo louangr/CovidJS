@@ -3,18 +3,50 @@ import Resources from "./resources.js"
 let countriesData = []
 
 const waysToSortCountriesData = {
+    ascending: "ascending",
+    descending: "descending",
     positiveCases: "positiveCases",
-    death: "death",
-    PIBByResidents: "PIBByResidents"
+    positiveCasesAscending: "positiveCasesAscending",
+    positiveCasesDescending: "positiveCasesDescending",
+    deaths: "deaths",
+    deathsAscending: "deathsAscending",
+    deathsDescending: "deathsDescending",
+    PIBByResident: "PIBByResident",
+    PIBByResidentAscending: "PIBByResidentAscending",
+    PIBByResidentDescending: "PIBByResidentDescending"
 }
 
-const sortAndGetCountriesData = (countriesNumber = 10, wayToSortCountriesData) => {
-    // TO DO: return sorted data
+const sortAndGetCountriesData = (countriesNumber = 10, wayToSortCountriesData = waysToSortCountriesData.positiveCasesDescending) => {
+    const paramUsedToSort = wayToSortCountriesData.includes(waysToSortCountriesData.deaths)
+        ? "totalDeaths"
+        : wayToSortCountriesData.includes(waysToSortCountriesData.PIBByResident)
+            ? "PIBByResidents"
+            : "totalConfirmed"
+
+    countriesNumber === "All" && (countriesNumber = countriesData.length)
+
+    return countriesData.sort((c1, c2) => {
+        if (wayToSortCountriesData.toLowerCase().includes(waysToSortCountriesData.ascending)) {
+            if (c1[paramUsedToSort] === null) {
+                return 1
+            } else if (c2[paramUsedToSort] === null) {
+                return -1
+            }
+            return c1[paramUsedToSort] - c2[paramUsedToSort]
+        } else {
+            if (c1[paramUsedToSort] === null) {
+                return 1
+            } else if (c2[paramUsedToSort] === null) {
+                return -1
+            }
+            return c2[paramUsedToSort] - c1[paramUsedToSort]
+        }
+    }).slice(0, countriesNumber)
 }
 
 const fetchAndStoreCountriesData = async () => {
     await fetchAndStoreCovidData() // 'await' is present here to be sure the 'countriesData' is filled when 'countriesData.findIndex(' is done
-    fetchAndStorePIBData()
+    await fetchAndStorePIBData() // 'await' is present here to be sure the 'countriesData' is filled when UI uses it
 
     console.log("countriesData", countriesData)
 }
@@ -40,5 +72,7 @@ const fetchAndStorePIBData = async () => {
 }
 
 export {
-    fetchAndStoreCountriesData
+    fetchAndStoreCountriesData,
+    sortAndGetCountriesData,
+    waysToSortCountriesData
 }
