@@ -1,6 +1,6 @@
 # CovidJS | GERAY Louan
 
-Avant tout chose :
+Avant toutes choses :
   - `npm install` à la racine du projet
 
 Pour exécuter les tests :
