@@ -47,8 +47,6 @@ const sortAndGetCountriesData = (countriesNumber = 10, wayToSortCountriesData = 
 const fetchAndStoreCountriesData = async () => {
     await fetchAndStoreCovidData() // 'await' is present here to be sure the 'countriesData' is filled when 'countriesData.findIndex(' is done
     await fetchAndStorePIBData() // 'await' is present here to be sure the 'countriesData' is filled when UI uses it
-
-    console.log("countriesData", countriesData)
 }
 
 const fetchAndStoreCovidData = async () => {
