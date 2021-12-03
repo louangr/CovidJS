@@ -1,4 +1,11 @@
 const resources = {
+    strings: {
+        countriesLabel: "Countries",
+        positiveCasesLabel: "Positive Cases",
+        deathsLabel: "Deaths",
+        PIBByResidentLabel: "GDP / capita",
+        nullValueLabel: "N/A"
+    },
     isoCountryCode: {
         AD: { countryCodeAlpha3: 'AND', hasPIBValue: false },
         AE: { countryCodeAlpha3: 'ARE', hasPIBValue: false },

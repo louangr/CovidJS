@@ -154,6 +154,9 @@ textarea.w-select {
   -ms-grid-rows: 24px;
   grid-template-rows: 24px;
   overflow-y: auto;
+}
+
+html, #data-grid {
   scrollbar-color: #94949484 transparent;
   scrollbar-width: thin
 }
@@ -269,21 +272,28 @@ textarea.w-select {
   align-items: center;
 }
 
-#data-grid::-webkit-scrollbar-track
+html::-webkit-scrollbar-track, #data-grid::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
 	background-color: transparent;
 	border-radius: 10px;
 }
 
-#data-grid::-webkit-scrollbar
+html::-webkit-scrollbar, #data-grid::-webkit-scrollbar
 {
 	width: 7px;
 	background-color: transparent;
 }
 
-#data-grid::-webkit-scrollbar-thumb
+html::-webkit-scrollbar-thumb, #data-grid::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
 	background-color: #94949484;
+}
+
+#scatter-chart {
+  width: auto;
+  height: 600px;
+  margin-top: 50px;
+  margin-bottom: 80px;
 }
